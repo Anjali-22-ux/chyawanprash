@@ -149,6 +149,12 @@
     background: radial-gradient(circle, hsl(var(--gold-light) / 0.8) 0%, transparent 70%);
     animation: particle-float 8s ease-in-out infinite;
   }
+
+  .particle-subtle {
+    @apply absolute rounded-full;
+    background: radial-gradient(circle, hsl(var(--gold-light) / 0.4) 0%, transparent 70%);
+    animation: particle-breathe 12s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -200,6 +206,17 @@
   75% {
     transform: translateY(-25px) translateX(15px) scale(1.05);
     opacity: 0.5;
+  }
+}
+
+@keyframes particle-breathe {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.1);
   }
 }
 
