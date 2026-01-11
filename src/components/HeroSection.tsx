@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Shield, Sparkles, Leaf, Heart } from "lucide-react";
+import { Shield, Sparkles, Leaf } from "lucide-react";
 import heroImage from "@/assets/chyawanprash-hero.png";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const AMAZON_LINK = "https://www.amazon.in/NID-Tea-Tablets-Green-60/dp/B0FH2HHDBL";
 
@@ -13,8 +14,23 @@ const floatingBadges = [
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      </div>
+
       {/* Particle effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -32,8 +48,7 @@ const HeroSection = () => {
       </div>
 
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/5 blur-[100px]" />
-
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/5 blur-[100px] z-[1]" />
       <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="flex flex-col items-center text-center">
           {/* Brand */}
