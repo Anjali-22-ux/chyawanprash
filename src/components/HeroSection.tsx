@@ -2,9 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Sparkles, Leaf } from "lucide-react";
 import heroImage from "@/assets/chyawanprash-hero.png";
+import logo from "@/assets/holy-logo.png";
 import heroVideo from "@/assets/hero-video.mp4";
+const SHOW_BADGES = false;
 
-const AMAZON_LINK = "https://www.amazon.in/NID-Tea-Tablets-Green-60/dp/B0FH2HHDBL";
+const AMAZON_LINK = "https://www.amazon.in/dp/B0GGC4YB5S";
 
 const floatingBadges = [
   { icon: Shield, text: "Daily Immunity", delay: 0.8 },
@@ -69,17 +71,28 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="container relative z-10 px-4 py-20 md:py-32">
+      <div className="container relative z-10 px-4 pt-8 pb-20 md:pt-12 md:pb-32">
         <div className="flex flex-col items-center text-center">
           {/* Brand - gentle fade only, no movement */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="text-gold font-body text-sm tracking-[0.3em] uppercase mb-6"
-          >
-            Holy Ayurveda
-          </motion.p>
+          <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+  className="flex flex-col items-center mb-6"
+>
+  <img
+    src={logo}
+    alt="Holy Ayurveda Logo"
+    className=" h-28 md:h-36 lg:h-40
+    mb-0.5
+    drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+  />
+
+  <p className="text-gold font-body text-lg tracking-[0.3em] uppercase">
+    Holy Ayurveda
+  </p>
+</motion.div>
+
 
           {/* Headline - subtle fade, minimal movement */}
           <motion.h1
@@ -119,25 +132,26 @@ const HeroSection = () => {
             <motion.img
               src={heroImage}
               alt="Holy Ayurveda Premium Chyawanprash"
-              className="relative z-10 w-64 md:w-80 lg:w-96 h-auto drop-shadow-2xl"
+              className="relative z-10 w-full lg:w-96 rounded-3xl overflow-hidden
+             shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
               animate={{ 
-                y: [0, -6, 0]
+                y: [-10, 10, -10]
               }}
               transition={{ 
-                duration: 8, 
+                duration: 10, 
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
             />
 
             {/* Floating benefit badges - calm fade in */}
-            {floatingBadges.map((badge, index) => (
+            {SHOW_BADGES && floatingBadges.map((badge, index) => (
               <motion.div
                 key={badge.text}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: badge.delay, ease: "easeOut" }}
-                className={`absolute hidden md:flex items-center gap-2 px-4 py-2 rounded-full card-premium border-gold/20 
+                className={`absolute hidden md:flex items-center gap-2 px-4 py-3 rounded-full card-premium border-gold/20 
                   ${index === 0 ? "left-0 top-1/4 -translate-x-1/2" : ""}
                   ${index === 1 ? "right-0 top-1/3 translate-x-1/2" : ""}
                   ${index === 2 ? "left-1/4 bottom-0 translate-y-1/2" : ""}

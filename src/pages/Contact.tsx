@@ -29,7 +29,7 @@ const Contact = () => {
               <Mail className="w-7 h-7 text-gold" />
             </div>
             <h3 className="font-display text-xl text-cream mb-2">Email Us</h3>
-            <p className="text-muted-foreground text-sm">support@holyayurveda.com</p>
+            <p className="text-muted-foreground text-sm">holyayurveda88@gmail.com</p>
           </motion.a>
           
           <motion.div

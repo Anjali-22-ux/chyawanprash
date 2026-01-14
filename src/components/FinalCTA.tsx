@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const AMAZON_LINK = "https://www.amazon.in/NID-Tea-Tablets-Green-60/dp/B0FH2HHDBL";
+const AMAZON_LINK = "https://www.amazon.in/dp/B0GGC4YB5S";
 
 const FinalCTA = () => {
   return (
